@@ -9,7 +9,7 @@
 
 ## 使い方
 
-公開URLをスマートフォンで開きます。
+https://suezou6241-arch.github.io/karaoke-selector/ をスマートフォンで開きます。
 
 - Android (Chrome): メニューの「アプリをインストール」
 - iPhone (Safari): 共有ボタンの「ホーム画面に追加」
