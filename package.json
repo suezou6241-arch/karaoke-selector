@@ -1,0 +1,16 @@
+{
+  "name": "karaoke-selector",
+  "version": "0.1.0",
+  "description": "カラオケ・セレクター: 2曲の共通点から、同年代・類似系統の実在楽曲をおすすめするWebアプリ (MVP)",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "check": "node scripts/smoke.js",
+    "eval": "node scripts/eval.js"
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5b3df5">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <!-- 静的ホスティングでは HTTP ヘッダーを設定できないため、CSP は meta でも持つ。
+       server/app.js の CSP と同じ内容にすること (frame-ancestors は meta では無効なので省略。scripts/smoke.js が検査する)。 -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://itunes.apple.com https://musicbrainz.org; base-uri 'none'; form-action 'self'; object-src 'none'">
+  <title>カラオケ・セレクター</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="カラオケ・セレクター">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="app-header">
+    <h1 class="app-title">🎤 カラオケ・セレクター</h1>
+    <nav class="tabs" aria-label="メニュー">
+      <button type="button" class="tab" data-nav="home" aria-current="page">ホーム</button>
+      <button type="button" class="tab" data-nav="library">履歴・お気に入り</button>
+    </nav>
+  </header>
+
+  <main id="main" class="app-main">
+    <section id="view-home" class="view" aria-labelledby="home-heading"></section>
+    <section id="view-result" class="view" aria-labelledby="result-heading" hidden></section>
+    <section id="view-library" class="view" aria-labelledby="library-heading" hidden></section>
+  </main>
+
+  <footer class="app-footer">
+    <p>楽曲情報: iTunes Search API / MusicBrainz。曲調・ボーカル構成などはタグやジャンルからの推定です。</p>
+    <p>カラオケの配信状況は確認していません。歌う前に、お使いの機種で曲を検索してください。</p>
+    <p>検索した曲名やアーティスト名は、この端末から iTunes と MusicBrainz に直接送信されます。履歴・お気に入りはこの端末の中にだけ保存されます。</p>
+  </footer>
+
+  <div id="status" class="visually-hidden" role="status" aria-live="polite"></div>
+  <div id="toast" class="toast" hidden></div>
+
+  <dialog id="search-dialog" class="sheet" aria-labelledby="search-title"></dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
